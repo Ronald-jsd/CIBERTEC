@@ -1,0 +1,33 @@
+
+.cards{
+    display: flex; /* 4*/ /*Es necesario para que salgan a los costados uno al otro*/
+}
+
+
+
+
+.card{
+    flex: 50%; /*para que los cuadrados sean del mismo tamaño*/
+    border: 5px solid rgb(42, 41, 41); /*borde*/ /*1*/
+    margin: 10px  ;/*margen de afuera*/ /*2*/
+
+    /*Ahora para rellenar todo el contenido de adentro y que sea parejo */
+    display: flex; /*Añadiremos display flex , aqui todo se pondra en columnas uno al costado*/
+    flex-direction: column ; /*añadiremos column para que se ponga abajo*/
+
+}
+
+.card .content{
+    flex-grow: 1; /* Ayudara a que crezca el contenido de adentro y al tener menos letra no se distorsione*/
+    flex-shrink: 1;  /* Ayudara a que crezca el contenido de adentro y al tener menos letra no se distorsione*/
+}
+
+
+.card .footer{
+    background-color: rgb(206, 192, 192);
+    padding: 10px 20px; /*margen dentro de la caja*/ /*3*/
+    
+    
+    
+}
+

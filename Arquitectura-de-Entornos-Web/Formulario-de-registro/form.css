@@ -1,0 +1,185 @@
+body {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1440px;
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  text-align: justify;
+}
+
+/* fondo de la pagina de registro */
+#body {
+  background-image: url(../img/coffe-wall.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  /* background-color: white; */
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: soft-light;
+}
+/* --------------------------- */
+
+/* Menu */
+header {
+  width: 100%;
+  background-color: black;
+  position: sticky;
+  height: 80px;
+  color: white;
+  top: 0;
+  z-index: 1000;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background: #000;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav .logo {
+  height: 80px;
+}
+
+nav .control-links {
+  display: flex;
+  gap: 40px;
+}
+
+nav .control-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-decoration: none;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+nav .button-link {
+  display: flex;
+  gap: 20px;
+}
+
+nav .button-link a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-decoration: none;
+  background-color: brown;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+/*-----------------------------------------------*/
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  /*   font-family: Arial, Helvetica, sans-serif;
+ */
+  background-color: rgb(22, 22, 22);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  height: 500px;
+  margin-top: 50px;
+  opacity: 94%;
+}
+
+form:hover {
+  box-shadow: 0px 1px 10px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+h2 {
+  color: white;
+  font-weight: 500;
+  font-size: 35px;
+  /*   font-family: "Pangea Afrikan Trial";
+ */
+  cursor: default;
+}
+
+/* INPUT */
+input {
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 200px;
+  height: 0px;
+ border: 0px;
+  background-color: rgb(37, 39, 36);
+ 
+}
+
+/* BOTON DE REGISTRO */
+.btn {
+  background-color: brown;
+  color: aliceblue;
+  border-radius: 10px;
+  margin-top: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.btn:hover {
+  background-color: black;
+  box-shadow: 0 0 1px #ffffff, 0 0 20px #ffffff;
+  font-size: 17px;
+}
+
+/* ICONOS REDES SOCIALES*/
+
+.login-social {
+  /* background-color: aqua; */
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: solid 1px rgb(171, 169, 169);
+  width: 35px;
+  height: 35px;
+  margin-right: 13px;
+  font-size: 20px;
+}
+
+.icons:hover {
+  transform: scale(1.2);
+}

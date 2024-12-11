@@ -1,0 +1,105 @@
+*{
+    margin: 0px;
+}
+
+body{
+    background-color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+img{width: 110px; height: 70px;
+    margin: 1px 0px 3px 0px;
+    border-radius: 2px 2px 0px ;
+}
+
+
+.content-card{
+   background-color: blue ;
+    height: 147px;
+    width: 110px;
+    color: white;
+    padding: 2px;  /*Espaciado interno*/
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 2px;
+}
+
+h3{
+    font-size: 6.98px;
+}
+
+span{
+    font-size: 3.49px;
+}
+
+p{
+    font-size: 4.36px;
+}
+
+.card-description{
+    margin: 5px; /*Espaciado de afuera*/
+    /* padding: 0px; */
+    /* background-color: rgb(255, 255, 255); */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 10px 5px 0px 5px;
+}
+
+
+
+
+.but{
+    
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+    height: 15px;
+    margin-top: 7px;
+    font-size: 5px;
+    color: rgb(216, 224, 208);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+
+.but:hover{
+    background-color: beige;
+    color: black;
+    font-weight: 740;
+}
+
+
+
+
+
+
+
+
+
+/* .button{
+    background-color: black;
+    color: rgb(255, 145, 0);
+    height: 10px;
+    width: 30px;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+
+
+
