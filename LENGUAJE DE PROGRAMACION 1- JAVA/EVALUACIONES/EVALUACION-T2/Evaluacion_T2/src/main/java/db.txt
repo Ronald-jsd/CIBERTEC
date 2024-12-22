@@ -1,0 +1,90 @@
+
+drop database ligas
+
+CREATE DATABASE db_ligas
+USE  db_ligas
+
+CREATE TABLE ligas 
+(
+id_liga INT AUTO_INCREMENT PRIMARY KEY ,
+nombre varchar(100)
+)
+INSERT INTO ligas (nombre)
+VALUES 
+("LaLiga"),
+("Premier League"),
+("Serie A"),
+("Bundesliga")
+
+INSERT INTO ligas (nombre)
+VALUES 
+("Cham")
+
+select * from ligas
+
+DROP TABLE clubes
+
+CREATE TABLE clubes 
+(
+id_clubes INT AUTO_INCREMENT PRIMARY KEY,
+id_liga INT REFERENCES ligas,
+nombre_club VARCHAR (100),
+campeonatos_nacionales  INT ,
+copas_nacionales INT,
+campeonatos_europeos VARCHAR(100)
+)
+
+INSERT INTO clubes (id_liga, nombre_club, campeonatos_nacionales, copas_nacionales, campeonatos_europeos)
+VALUES
+-- LaLiga
+(1, 'Real Madrid', 34, 19, 'Champions League: 13'),
+(1, 'Barcelona', 26, 31, 'Champions League: 5'),
+(1, 'Atlético Madrid', 11, 10, 'Europa League: 3'),
+(1, 'Sevilla', 1, 5, 'Europa League: 6'),
+(1, 'Valencia', 6, 8, 'Europa League: 1'),
+
+-- Premier League
+(2, 'Manchester United', 20, 12, 'Champions League: 3'),
+(2, 'Liverpool', 19, 7, 'Champions League: 6'),
+(2, 'Chelsea', 6, 8, 'Champions League: 2'),
+(2, 'Manchester City', 7, 6, 'Champions League: 1'),
+(2, 'Arsenal', 13, 14, 'Europa League: 0'),
+
+-- Serie A
+(3, 'Juventus', 36, 14, 'Champions League: 2'),
+(3, 'Inter Milan', 19, 7, 'Champions League: 3'),
+(3, 'AC Milan', 18, 5, 'Champions League: 7'),
+(3, 'Roma', 3, 9, 'Europa League: 1'),
+(3, 'Napoli', 3, 6, 'Europa League: 0'),
+
+-- Bundesliga
+(4, 'Bayern Munich', 31, 20, 'Champions League: 6'),
+(4, 'Borussia Dortmund', 8, 5, 'Champions League: 1'),
+(4, 'RB Leipzig', 0, 2, 'Europa League: 0'),
+(4, 'Bayer Leverkusen', 1, 1, 'Europa League: 1'),
+(4, 'Schalke 04', 7, 5, 'Europa League: 1');
+
+
+
+select * from ligas  full join  clubes 
+
+show tables
+
+
+#LaLiga"),
+#Premier League"),
+#Serie A"),
+#Bundesliga")
+
+#LISTAR cCLUB POR ID DE LIGA
+select  *
+from clubes
+where id_liga = 1
+
+
+#LISTAR_dETALLES_POR_ID_CLUB
+select  *
+from ligas  
+
+
+
