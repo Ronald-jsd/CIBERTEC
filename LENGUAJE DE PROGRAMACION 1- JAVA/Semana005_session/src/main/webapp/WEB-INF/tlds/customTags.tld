@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                            http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+    <!-- Versión de la biblioteca de etiquetas -->
+    <tlib-version>1.0</tlib-version>
+
+    <!-- Nombre de la biblioteca -->
+    <short-name>CustomTags</short-name>
+
+    <!-- Etiqueta personalizada -->
+    <tag>
+        <name>saludo</name> 
+        <tag-class>customTags.SaludoTag</tag-class> 
+        <body-content>empty</body-content> 
+        <attribute>
+            <name>name</name> 
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>currentDate</name> 
+        <tag-class>customTags.DateTag</tag-class> 
+        <body-content>empty</body-content> 
+    </tag>
+    
+    
+        <tag>
+        <name>dolar</name> 
+        <tag-class>customTags.DolarTag</tag-class> 
+        <body-content>empty</body-content> 
+        <attribute>
+            <name>name</name> 
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    
+
+    
+</taglib>
