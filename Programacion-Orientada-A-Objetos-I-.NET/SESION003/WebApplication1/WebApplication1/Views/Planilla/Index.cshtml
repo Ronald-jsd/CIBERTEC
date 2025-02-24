@@ -1,0 +1,77 @@
+﻿@model WebApplication1.Models.Empleado
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label"></label>
+                <input asp-for="DNI" class="form-control" />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cargo" class="control-label"></label>
+                <input asp-for="Cargo" class="form-control" />
+                <span asp-validation-for="Cargo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Basico" class="control-label"></label>
+                <input asp-for="Basico" class="form-control" />
+                <span asp-validation-for="Basico" class="text-danger"></span>
+            </div>
+
+            @*RESULTADOS*@
+
+            <h2>RESULTADOS</h2>
+            <div class="form-group">
+                <label class="control-label">Bonificacion</label>
+                <input value="@ViewBag.bonificacion" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Escolaridad</label>
+                <input value="@ViewBag.escolaridad" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Movilidad</label>
+                <input value="@ViewBag.movilidad" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Retencion5ta</label>
+                <input value="@ViewBag.retencion5ta" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Seguro</label>
+                <input value="@ViewBag.seguro" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Neto</label>
+                <input value="@ViewBag.neto" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
