@@ -1,0 +1,99 @@
+﻿@using static WebApplication1.Models.Leonidas @* //PARA USAR LA LISTA  *@
+@model WebApplication1.Models.Transporte
+
+@{
+    ViewData["Title"] = "IndexGeneral";
+}
+
+<h1>IndexGeneral</h1>
+
+<h4>Transporte</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="IndexGeneral">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* para que muestre la lista de empresa a escoger*@          
+            <div>
+                <label for="empresa">Seleccione la Empresa:</label>
+                <select id="empresa" name="empresa">
+                    <option value="Ivovic">Ivovic</option>
+                    <option value="Leonidas">Leonidas</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="NombreDestinatario" class="control-label"></label>
+                <input asp-for="NombreDestinatario" class="form-control" />
+                <span asp-validation-for="NombreDestinatario" class="text-danger"></span>
+            </div>
+
+
+            @*------------------*@
+  @*           <div class="form-group">
+                <label asp-for="DireccionDestino" class="control-label"></label>
+                <input asp-for="DireccionDestino" class="form-control" />
+                <span asp-validation-for="DireccionDestino" class="text-danger"></span>
+            </div> *@
+
+
+            <div class="form-group">
+                <label class="control-label">Destino</label>
+                <select asp-for="DireccionDestino" asp-items="@(new SelectList(Enum.GetValues(typeof(ListaDestinos))))" class="form-control">
+                    <option value="">--Seleccione--</option>
+                </select>
+                @*Ese valor sera tomado por asp-for="Destino"
+                Ira hacia el controlador leo.Tarifador() y de ahi a la clase
+                de Models Leonidas, ahi Tarifador compara el valor destino elegido
+                con valores del switch
+                *@
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="CantidadTM" class="control-label"></label>
+                <input asp-for="CantidadTM" class="form-control" />
+                <span asp-validation-for="CantidadTM" class="text-danger"></span>
+            </div>
+
+
+            @*RESULTADOS *@
+            <h2>Resultados:</h2>
+
+            <div class="form-group">
+                <label asp-for="Tarifa" class="control-label"></label>
+                <input value=@ViewBag.tarifa class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Flete</label>
+                <input value=@ViewBag.flete class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Seguro</label>
+                <input value=@ViewBag.seguro class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label">Monto Total</label>
+                <input value=@ViewBag.monto class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

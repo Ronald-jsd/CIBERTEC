@@ -1,0 +1,57 @@
+﻿@using static WebApplication1.Models.Leonidas
+@model WebApplication1.Models.Transporte
+
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<h1>Resultado</h1>
+
+<h4>Transporte</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Resultado">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            @*Agregando boton para regresar al index principal *@
+            <div>
+                <a asp-action="IndexGeneral">Volver</a>
+            </div>
+
+            @*RESULTADOS *@
+            <h2>Resultados:</h2>
+
+            <div class="form-group">
+                <label asp-for="Tarifa" class="control-label"></label>
+                <input value=@ViewBag.tarifa class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Flete</label>
+                <input value=@ViewBag.flete class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Seguro</label>
+                <input value=@ViewBag.seguro class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Monto</label>
+                <input value=@ViewBag.monto class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
