@@ -1,0 +1,11 @@
+[
+  {
+    "idAlumno": 1,
+    "DNI": "9898980",
+    "Apellidos": "Jaime Duran",
+    "Nombres": "Ronald Santiago",
+    "TipoEstudiante": "Becado",
+    "Sexo": "Masculino",
+    "FechaDeNacimiento": "2000-01-01T00:00:00"
+  }
+]

@@ -1,0 +1,89 @@
+﻿@using static WebApplication1.Models.Alumno
+@model WebApplication1.Models.Alumno
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Alumno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+@*                 <label asp-for="idAlumno" class="control-label"></label>
+ *@                <input asp-for="idAlumno" class="form-control" hidden />
+@*                 <span asp-validation-for="idAlumno" class="text-danger"></span>
+ *@            </div>
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label"></label>
+                <input asp-for="DNI" class="form-control" />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellidos" class="control-label"></label>
+                <input asp-for="Apellidos" class="form-control" />
+                <span asp-validation-for="Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombres" class="control-label"></label>
+                <input asp-for="Nombres" class="form-control" />
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+
+
+
+            <div>
+                <label>Tipo Estudiante</label>
+                <select asp-for="TipoEstudiante" asp-items="@(new SelectList(Enum.GetValues(typeof(EnumTipoEstudiante))))" class="form-control">
+                    <option value="">--Seleccione--</option>
+                </select>
+                <span asp-validation-for="TipoEstudiante" class="text-danger"></span>
+            </div>
+
+
+            <div>
+                <label>Sexo</label>
+                <select asp-for="Sexo" asp-items="@(new SelectList(Enum.GetValues(typeof(EnumSexo))))" class="form-control">
+                    <option value="">--Seleccione--</option>
+                </select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="FechaDeNacimiento" class="control-label"></label>
+                <input asp-for="FechaDeNacimiento" class="form-control" type="date"/>
+                <span asp-validation-for="FechaDeNacimiento" class="text-danger"></span>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
