@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebApplication2.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<h2>BÚSQUEDA DE PRODUCTOS</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        <em>Nombre del producto</em>
+        @Html.TextBox("texto");
+        <button class="btn btn-dark" >Buscar</button>
+    }
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Presentacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Presentacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IDProducto }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.IDProducto}) | @*ID Identificador del producto que envia (u otro identificador)*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.IDProducto  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
