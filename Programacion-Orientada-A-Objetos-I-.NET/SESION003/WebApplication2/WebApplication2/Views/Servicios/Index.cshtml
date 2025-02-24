@@ -1,0 +1,81 @@
+﻿@model WebApplication2.Models.Fullcopy
+@using static WebApplication2.Models.Fullcopy
+@*IMPROTAMOS PARA USAR LISTA diriendonos a la ubicacion de esa clase*@
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>Fullcopy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            
+            @*MODIFICAMOS PARA QUE APAREZCA LA LISTA *@
+            
+            <div class="form-group">
+                <label  class="control-label">Tamaño</label>
+                <select asp-for="Tamaño" asp-items="@(new SelectList(Enum.GetValues(typeof(ListaTamanos))))" class="form-control">
+                <option value="">--Seleccione--</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NRecibo" class="control-label"></label>
+                <input asp-for="NRecibo" class="form-control" />
+                <span asp-validation-for="NRecibo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente" class="control-label"></label>
+                <input asp-for="Cliente" class="form-control" />
+                <span asp-validation-for="Cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+
+
+            @*Editando RESULTADOS*@
+            <h2>Resultados</h2>
+
+
+            <div class="form-group">
+                <label  class="control-label">Tarifa: </label>
+                <input value=@ViewBag.tarifa  class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Importe: </label>
+                <input value=@ViewBag.importe class="form-control" />
+
+
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
