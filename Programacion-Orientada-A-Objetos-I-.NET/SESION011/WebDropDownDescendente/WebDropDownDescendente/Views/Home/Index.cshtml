@@ -1,0 +1,97 @@
+﻿@model DropDownsVM
+
+@* con que modelo trabajare en este ejemplo? 
+    Es el dropdownViewModel
+*@
+
+
+@*-------------------------------------*@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+@*-------------------------------------*@
+@*-----Haremos el diseño--------------------------------*@
+
+@* DROPDOWN PROVINCIA *@
+<div class="align-content-start">
+    <form action="/" method="post">
+
+        @*DROPDOWN DE PROVINCIAS*@
+        <div class="row">
+            <div class="col-4">
+                <label  for="proviciaD">Provincia</label>
+                <select id="provinciaD" class="form-control">
+                <option value="">Seleccionas Provincia</option>
+
+                    @foreach (var item in Model.Provincias)@* @Siempre se hace referencia al model , en este caso al de Provincias,       la colecion seria el modelo
+                    *@
+                    {
+                         @*Value seria el id e bd, y el nombre  *@
+                        <option value="@item.Id"> @item.Nombre </option>
+                        @* Mostrara de los nombres de provincias que puse en la base de datos *@
+                    }
+                </select> 
+            </div>
+        </div>
+
+        @*DROPDOWN DE DISTRITOS*@
+        <div class="row">
+            <div class="col-4">
+                <label for="distritoD">Distrio</label>
+                <select id="distritoD" class="form-control" disabled> @*Le pondremos bloqueado para que cuando seleccionemos provincia se active*@
+                    <option value="">Seleccionar Distrito</option>
+                </select>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+
+@* Siempre referencia el script de jquery *@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //manejando el cambio en el dropdown de Provincia
+        $("#provinciaD").change(function () {
+            var proviID = $(this).val(); //(obtenido el id de la provincia )Del selet obtendremos el valor que es el id 
+            //Vamos a mostrar por consola para ver si funciona la seleccion video
+            //console.log("La varaible seleccionada es: " + proviID);
+        
+            
+            //limpiar y deshabilitar el dropdown de distritos
+            //kimpiar al distrito
+            $("#distritoD").empty().append("<option value=''>Seleccionar Distrito </option>").prop("disabled",true);
+   
+            if (proviID) {
+                $.ajax({
+                    url: "/Home/obtenerDistritos", //EST METODO SERA DECLARADO EN EL CONTROLADOR EN ESTE CASO EL DE EJEMPLO ES HOMMECONTROLLER 
+                    //metodo creado en el controlador
+                    type: "GET",
+                    data: { proviID: proviID },
+                    success: function (distritos) {
+                        //Llenandown de distritos con las opciones obtenidas 
+                        $.each(distritos, function (index, distrito) {
+                            $("#distritoD").append("<option value='" + distrito.id + "'>" + distrito.nombre + "</option>");
+                        });
+                        //HABILITANDO EL DROPDOWN DE DISTRITOS
+                        $("#distritoD").prop("disabled", false);
+                    }
+                });
+            }
+        });
+    });
+
+   
+
+</script>
