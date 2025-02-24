@@ -1,0 +1,70 @@
+﻿@model WebApplication1.Models.Venta
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>Venta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NroBoleta" class="control-label"></label>
+                <input asp-for="NroBoleta" class="form-control" />
+                <span asp-validation-for="NroBoleta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mueble" class="control-label"></label>
+                <input asp-for="Mueble" class="form-control" />
+                <span asp-validation-for="Mueble" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precio" class="control-label"></label>
+                <input asp-for="precio" class="form-control" />
+                <span asp-validation-for="precio" class="text-danger"></span>
+            </div>
+
+            @* Mostrar resultados *@
+            <div class="form-group">
+                <label  class="control-label">Descuento</label>
+                @*Indico el valor de la variable del controlador
+                    Agrego --> value=@ViewBag.descuento
+                    para mostrar el resultado
+                *@
+                <input value=@ViewBag.descuento class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Precio Neto</label>
+                @*Indico el valor de la variable del controlador*@
+                <input value=@ViewBag.neto class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Procesar" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
