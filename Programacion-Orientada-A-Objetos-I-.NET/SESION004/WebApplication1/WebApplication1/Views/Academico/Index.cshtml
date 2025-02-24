@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebApplication1.Models.Curso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*METODO PARA CREATE *@
+    @*asp-action -> Hace referncia al nombre del metodo del controlador que estara enlazado a este link (Deben ser iguales el nombre )*@
+    <a asp-action="Create">Nuevo Curso</a> 
+</p>
+
+<h2>Busqueda de Cursos</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <em>Nombre del curso</em>
+        //el valor debe llamarse igual al que esta recibiendo en el controlador del metodo Index- > En este caso dato
+        @Html.TextBox("dato", ""); 
+        <button>Buscar</button>
+    }
+</div>
+
+
+
+@*Muestra en la vista los datos segun el modelo , as automatico*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Creditos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+
+
+
+    <tbody>
+        @*Toma una variable que itera dentro del modelo en este caso curso --> itera cada elemento del modelo*@
+        @*Itera hasta completar cada elemento de nuestra lista de cursos *@
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creditos)
+            </td>
+
+          
+            <td>
+                @Html.ActionLink("EDITAR", "Edit", new { id=item.IDCurso }) | @*El segundo parametro se refiere al nombre de la clase del metodo en el controlador*@
+                @Html.ActionLink("DETALLES", "Details", new { id=item.IDCurso}) | @*item hace referencia a cada atributo por lo que si tengo el IDCurso *@
+                @Html.ActionLink("ELIMINAR", "Delete", new { id=item.IDCurso })
+            </td>
+        </tr>
+}
+
+</table>
