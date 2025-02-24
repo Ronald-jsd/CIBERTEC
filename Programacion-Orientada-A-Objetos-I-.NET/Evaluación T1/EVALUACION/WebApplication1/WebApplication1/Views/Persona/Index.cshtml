@@ -1,0 +1,105 @@
+﻿@model IEnumerable<WebApplication1.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Agregar ALumno</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DNI)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidoPaterno)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidoMaterno)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+
+            <th>Correo</th>
+
+            <th>Edad</th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+
+            <th>Promedio</th>
+    
+
+
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DNI)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombres)
+                </td>
+
+
+                @*CORREO*@
+                <td>
+                    @item.GenerarCorreo()
+                </td>
+
+
+                @*EDAD CALCULADA*@
+                <td>
+                    @item.CalcularEdad()
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera)
+                </td>
+
+                @*PROMEDIO*@
+                <td>
+                    @item.Promedio().ToString("#,###.##")
+                </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
