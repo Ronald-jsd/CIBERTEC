@@ -1,0 +1,26 @@
+[
+  {
+    "IDProveedor": 1,
+    "RUC": "99885544",
+    "Nombre": "Alexis",
+    "Direccion": "Callao",
+    "Telefono": "923965871",
+    "Email": "rongmail@gmail.co"
+  },
+  {
+    "IDProveedor": 2,
+    "RUC": "4455223366",
+    "Nombre": "Pedro Gonzales",
+    "Direccion": "Callao",
+    "Telefono": "923965871",
+    "Email": "rongmail@gmail.co"
+  },
+  {
+    "IDProveedor": 3,
+    "RUC": "77552233",
+    "Nombre": "Pedro ",
+    "Direccion": "Barranco",
+    "Telefono": "454545454",
+    "Email": "Alexiiii@gmail.com"
+  }
+]
